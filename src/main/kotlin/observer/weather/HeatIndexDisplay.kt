@@ -7,8 +7,8 @@ class HeatIndexDisplay(weatherData: WeatherData) : Observer, DisplayElement {
         weatherData.registerObserver(this)
     }
 
-    override fun update(t: Float, rh: Float, pressure: Float) {
-        heatIndex = computeHeatIndex(t, rh)
+    override fun update() {
+        heatIndex = computeHeatIndex(WeatherData.temperature, WeatherData.humidity)
         display()
     }
 

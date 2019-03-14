@@ -1,9 +1,6 @@
 package observer.weather
 
-object WeatherStation {
-
-    @JvmStatic
-    fun main(args: Array<String>) {
+fun main() {
         val weatherData = WeatherData()
 
         val currentDisplay = CurrentConditionsDisplay(weatherData)
@@ -14,4 +11,3 @@ object WeatherStation {
         weatherData.setMeasurements(82f, 70f, 29.2f)
         weatherData.setMeasurements(78f, 90f, 29.2f)
     }
-}

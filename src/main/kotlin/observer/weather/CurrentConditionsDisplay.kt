@@ -8,9 +8,9 @@ class CurrentConditionsDisplay(weatherData: Subject) : Observer, DisplayElement 
         weatherData.registerObserver(this)
     }
 
-    override fun update(temperature: Float, humidity: Float, pressure: Float) {
-        this.temperature = temperature
-        this.humidity = humidity
+    override fun update() {
+        this.temperature = WeatherData.temperature
+        this.humidity = WeatherData.humidity
         display()
     }
 

@@ -11,6 +11,7 @@ class StatisticsDisplay(weatherData: WeatherData) : Observer, DisplayElement {
     }
 
     override fun update() {
+        // Fetches new data from weatherData
         val temp = WeatherData.temperature
         tempSum += temp
         numReadings++
@@ -22,10 +23,13 @@ class StatisticsDisplay(weatherData: WeatherData) : Observer, DisplayElement {
         if (temp < minTemp) {
             minTemp = temp
         }
-
+        // Display changes
         display()
     }
 
+    /**
+     * Display the Avg/Max/Min temperature
+     */
     override fun display() {
         println("Avg/Max/Min temperature = " + tempSum / numReadings + "/$maxTemp/$minTemp")
     }

@@ -10,11 +10,15 @@ class ForecastDisplay(weatherData: WeatherData) : Observer, DisplayElement {
 
     override fun update() {
         lastPressure = currentPressure
+        // Fetches new data from weatherData
         currentPressure = WeatherData.pressure
-
+        // Display changes
         display()
     }
 
+    /**
+     * Displays forecast
+     */
     override fun display() {
         print("Forecast: ")
         when {

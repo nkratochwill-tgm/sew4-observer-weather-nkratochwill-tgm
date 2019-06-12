@@ -8,10 +8,18 @@ class HeatIndexDisplay(weatherData: WeatherData) : Observer, DisplayElement {
     }
 
     override fun update() {
+        // Fetches new data from weatherData and updates heatIndex
         heatIndex = computeHeatIndex(WeatherData.temperature, WeatherData.humidity)
+        // Display data
         display()
     }
 
+    /**
+     * Calculates heat index
+     * @param t temperature
+     * @param rh humidity
+     * @return heat index
+     */
     private fun computeHeatIndex(t: Float, rh: Float): Float {
         return ((16.923 + 0.185212 * t + 5.37941 * rh - 0.100254 * t.toDouble() * rh.toDouble()
                 + 0.00941695 * (t * t) + 0.00728898 * (rh * rh)
@@ -19,6 +27,9 @@ class HeatIndexDisplay(weatherData: WeatherData) : Observer, DisplayElement {
                 0.000000197483 * (t * rh * rh * rh) - 0.0000000218429 * (t * t * t * rh * rh) + 0.000000000843296 * (t * t * rh * rh * rh) - 0.0000000000481975 * (t * t * t * rh * rh * rh)).toFloat()
     }
 
+    /**
+     * Display current head index
+     */
     override fun display() {
         println("Heat index is $heatIndex")
     }

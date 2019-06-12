@@ -1,5 +1,8 @@
 package observer.weather
 
+/**
+ * Interface to fetch weather data
+ */
 class WeatherData : Subject {
     private val observers: ArrayList<Observer> = ArrayList()
 
@@ -21,6 +24,7 @@ class WeatherData : Subject {
     }
 
     override fun notifyObservers() {
+        // Notifies observers so they can fetch the new data
         observers.forEach {
             it.update()
         }
